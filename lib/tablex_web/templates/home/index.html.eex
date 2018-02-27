@@ -1,0 +1,9 @@
+<div>
+<ul>
+<%= for table <- @tables do %>
+  <li><%= table %></li>
+<% end %>
+<ul>
+</div>
+
+

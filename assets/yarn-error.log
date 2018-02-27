@@ -1,0 +1,45 @@
+Arguments: 
+  /Users/groksrc/.nvm/versions/node/v6.11.2/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js install
+
+PATH: 
+  /Users/groksrc/.asdf/shims:/Users/groksrc/.asdf/bin:/Users/groksrc/.nvm/versions/node/v6.11.2/bin:/usr/local/sbin:/usr/local/heroku/bin:/usr/local/opt/postgresql@9.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/share/dotnet:/opt/X11/bin:/usr/local/bin:/usr/lib/chromium-browser:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Library/TeX/texbin/
+
+Yarn version: 
+  1.3.2
+
+Node version: 
+  6.11.2
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "repository": {},
+    "license": "MIT",
+    "scripts": {
+      "deploy": "brunch build --production",
+      "watch": "brunch watch --stdin"
+    },
+    "dependencies": {
+      "phoenix": "file:../deps/phoenix",
+      "phoenix_html": "file:../deps/phoenix_html"
+    },
+    "devDependencies": {
+      "babel-brunch": "6.1.1",
+      "brunch": "2.10.9",
+      "clean-css-brunch": "2.10.0",
+      "uglify-js-brunch": "2.10.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND artifact.int.simpli.fi artifact.int.simpli.fi:443
+      at errnoException (dns.js:28:10)
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:76:26)
