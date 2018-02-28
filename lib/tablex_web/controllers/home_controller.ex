@@ -10,4 +10,8 @@ defmodule TablexWeb.HomeController do
     render conn, "index.html", tables: Tables.list_tables
   end
 
+  def show(conn, %{ "table_name" => table_name }) do
+    render conn, "show.html", table: Tables.get_table(table_name)
+  end
+
 end

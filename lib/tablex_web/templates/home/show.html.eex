@@ -1,0 +1,11 @@
+<div>
+  <h1>
+  <%= @table.table_name %>
+  </h1>
+</div>
+<div>
+  <%#= for column <- @table.columns do %>
+    <%#= render "column.html", column: column %>
+  <%#end%>
+  <%= render "schema.html", table: @table %>
+</div>

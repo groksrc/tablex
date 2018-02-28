@@ -17,6 +17,7 @@ defmodule TablexWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", HomeController, :index
+    get "/:table_name", HomeController, :show
   end
 
   # Other scopes may use custom stacks.

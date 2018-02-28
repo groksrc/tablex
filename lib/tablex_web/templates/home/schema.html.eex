@@ -1,0 +1,11 @@
+<pre>
+defmodule <%= "module_name" %> do
+  use Ecto.Schema
+
+  schema "<%= @table.table_name %>" do
+  <%= for column <- @table.columns do %>
+    <%= render "column.html", column: column %>
+  <%end%>
+  end
+end
+</pre>
