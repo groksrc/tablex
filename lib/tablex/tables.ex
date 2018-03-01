@@ -16,19 +16,6 @@ defmodule Tablex.Tables do
     |> format
   end
 
-  def tables do
-    from(
-      t in public_tables(),
-      select: t.table_name,
-      group_by: t.table_name,
-      order_by: t.table_name
-    )
-  end
-
-  def format(tables) do
-    Enum.map(tables, fn t -> get_table(t) end)
-  end
-
   @doc """
   Gets a single table.
   """
@@ -51,11 +38,24 @@ defmodule Tablex.Tables do
     %{table_name: name, columns: columns}
   end
 
-  def from_information_schema(query) do
+  defp tables do
+    from(
+      t in public_tables(),
+      select: t.table_name,
+      group_by: t.table_name,
+      order_by: t.table_name
+    )
+  end
+
+  defp format(tables) do
+    Enum.map(tables, fn t -> get_table(t) end)
+  end
+
+  defp from_information_schema(query) do
     query |> Map.put(:prefix, "information_schema")
   end
 
-  def public_tables do
+  defp public_tables do
     from(
       c in "columns",
       where: c.table_schema == "public"
