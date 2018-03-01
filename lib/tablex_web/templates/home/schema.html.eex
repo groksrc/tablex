@@ -1,5 +1,5 @@
 <pre>
-defmodule <%= "module_name" %> do
+defmodule <%= module_name(@table.table_name) %> do
   use Ecto.Schema
 
   schema "<%= @table.table_name %>" do

@@ -1,5 +1,6 @@
 defmodule TablexWeb.HomeView do
   use TablexWeb, :view
+  import Inflex
 
   def elixir_type(data_type) do
     cond do
@@ -10,7 +11,7 @@ defmodule TablexWeb.HomeView do
         ":float"
 
       Enum.any?(["decimal", "numeric"], fn x -> data_type == x end) ->
-        "Decimal"
+        ":decimal"
 
       Enum.any?(["bytea", "bit"], fn x -> data_type == x end) ->
         ":binary"
@@ -19,10 +20,10 @@ defmodule TablexWeb.HomeView do
         ":boolean"
 
       "date" == data_type ->
-        "Date"
+        ":date"
 
       "timestamp without time zone" == data_type ->
-        "NaiveDateTime"
+        ":datetime"
 
       "timestamp with time zone" == data_type ->
         "DateTime"
@@ -30,6 +31,12 @@ defmodule TablexWeb.HomeView do
       true ->
         ":string"
     end
+  end
+
+  def module_name(table_name) do
+    table_name
+    |> camelize
+    |> singularize
   end
 
   def integer_types do
