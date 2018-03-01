@@ -11,7 +11,7 @@ defmodule Tablex.Application do
       # Start the Ecto repository
       supervisor(Tablex.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(TablexWeb.Endpoint, []),
+      supervisor(TablexWeb.Endpoint, [])
       # Start your own worker by calling: Tablex.Worker.start_link(arg1, arg2, arg3)
       # worker(Tablex.Worker, [arg1, arg2, arg3]),
     ]

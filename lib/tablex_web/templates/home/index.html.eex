@@ -11,10 +11,10 @@
     </v-toolbar>
     <v-divider></v-divider>
     <v-list>
-      <%= for [table_name, columns] <- @tables do %>
+      <%= for table <- @tables do %>
       <v-list-tile>
         <v-list-tile-content>
-          <a href="/#<%= table_name %>"><%= table_name %></a>
+          <a href="/#<%= table.table_name %>"><%= table.table_name %></a>
         </v-list-tile-content>
       </v-list-tile>
       <% end %>
@@ -22,9 +22,9 @@
   </v-navigation-drawer>
   <v-content>
     <v-container fluid>
-      <%= for [table_name, _] <- @tables do %>
+      <%= for %{ table_name: table_name} = table <- @tables do %>
       <a name="<%= table_name %>"></a>
-      <%= render "schema.html", table: get_table(table_name) %>
+      <%= render "schema.html", table: table %>
       <% end %>
     </v-container>
   </v-content>

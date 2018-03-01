@@ -25,13 +25,13 @@ defmodule TablexWeb.ChannelCase do
     end
   end
 
-
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Tablex.Repo)
+
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(Tablex.Repo, {:shared, self()})
     end
+
     :ok
   end
-
 end

@@ -10,43 +10,49 @@ defmodule Tablex.Tables do
   Returns the list of tables.
   """
   def list_tables do
-    table_info()
+    tables()
     |> from_information_schema
-    |> Repo.all
+    |> Repo.all()
+    |> format
   end
 
-  def table_info do
+  def tables do
     from(
       t in public_tables(),
-      select: [t.table_name, count(t.table_name)],
+      select: t.table_name,
       group_by: t.table_name,
       order_by: t.table_name
     )
+  end
+
+  def format(tables) do
+    Enum.map(tables, fn t -> get_table(t) end)
   end
 
   @doc """
   Gets a single table.
   """
   def get_table(name) do
-    columns = public_tables()
-    |> select([
-      :column_name,
-      :ordinal_position,
-      :column_default,
-      :is_nullable,
-      :data_type,
-      :character_maximum_length,
-      :is_identity
-    ])
-    |> from_information_schema
-    |> where([c], c.table_name == ^name)
-    |> Repo.all()
-    %{ table_name: name, columns: columns }
+    columns =
+      public_tables()
+      |> select([
+        :column_name,
+        :ordinal_position,
+        :column_default,
+        :is_nullable,
+        :data_type,
+        :character_maximum_length,
+        :is_identity
+      ])
+      |> from_information_schema
+      |> where([c], c.table_name == ^name)
+      |> Repo.all()
+
+    %{table_name: name, columns: columns}
   end
 
   def from_information_schema(query) do
-    query
-    |> Map.put(:prefix, "information_schema")
+    query |> Map.put(:prefix, "information_schema")
   end
 
   def public_tables do
@@ -55,5 +61,4 @@ defmodule Tablex.Tables do
       where: c.table_schema == "public"
     )
   end
-
 end
