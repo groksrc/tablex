@@ -24,6 +24,10 @@ defmodule TablexWeb.HomeView do
     end
   end
 
+  def get_table(table_name) do
+    Tablex.Tables.get_table(table_name)
+  end
+
   def integer_types do
     [
       "bigint",
@@ -35,7 +39,4 @@ defmodule TablexWeb.HomeView do
     ]
   end
 
-  def float_types do
-
-  end
 end

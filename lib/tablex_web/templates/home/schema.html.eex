@@ -8,4 +8,6 @@ defmodule <%= "module_name" %> do
   <%end%>
   end
 end
+
+
 </pre>
