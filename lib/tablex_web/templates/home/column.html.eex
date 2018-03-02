@@ -1,1 +1,1 @@
-field <%= ":" <> @column.column_name %>, <%= elixir_type(@column.data_type) %>
+field <%= ":" <> @column.column_name %>, <%= elixir_type(@column) %>
