@@ -23,4 +23,4 @@ This tool was intended primarily as an initial introduction for myself with Elix
 
 * Relationships are not supported, but could probably be added by someone who is interested (my existing database is from rails and there are no foreign keys).
 * I was primarily concerned with creating a starting point for schema files of a large database, not getting them perfect. Edit the files as you see fit.
-* I have experimented with [Vuetify.js](vuetifyjs.com) for the front end. (Experiment inception, I know right). There is a little quirk where the left nav will disappear if your window is sized too small which I am not interested to fix.
+* I have sub-experimented with [Vuetify.js](vuetifyjs.com) for the front end. There is a little quirk where the left nav will disappear if your window is sized too small which I am not interested to fix. If you don't see the left nav just expand your window until the breakpoint shows it.
