@@ -1,20 +1,25 @@
 # Tablex
 
-To start your Phoenix server:
+Tablex helps you export an existing database into Ecto Schema files.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+## Getting Started
+It's as easy as 1. 2. 3.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+1. $ git clone https://github.com/groksrc/tablex
+2. Edit the config/dev.exs to point to your database
+3. $ mix phx.server
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+## Customizing the output
+The main idea with this is that it should be easy to customize the output to suit your needs.
 
-## Learn more
+There are two places you can do this:
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+* `lib/tablex_web/views/home_view.ex` # use to modify the `field` outputs
+* `lib/tablex_web/templates/home/schema.html.eex` # use to modify the outer parts of the file
+
+## Notes
+
+This tool was intended primarily as an initial introduction for myself with Elixir and Phoenix. As such:
+
+* Relationships are not supported, but could probably be added by someone who is interested (my existing database is from rails and there are no foreign keys).
+* I was primarily concerned with creating a starting point for schema files of a large database, not getting them perfect. Edit the files as you see fit.
